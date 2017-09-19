@@ -5,8 +5,6 @@
 * mongodb
 * mongoose
 
-# http://collection-db-vincentscotto.c9users.io/
-
 Each collection has: 
 
 * name

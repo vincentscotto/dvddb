@@ -1,0 +1,17 @@
+<% include partials/header %>
+
+<section class="listings">
+
+<h1>DVDs</h1>
+
+  <ul>
+  <% dvds.forEach(function(dvd) { %>
+    <li><span class="id"><%= dvd._id %></span>
+    <p><a href="/dvds/<%= dvd._id  %>"><%= dvd.name %></a></p>
+    <p class="info"><%= dvd.description %></p></li>
+  <% }); %>
+  </ul>
+
+</section>
+
+<% include partials/footer %>

@@ -1,0 +1,53 @@
+<% include partials/header %>
+
+<section class="new">
+
+<h1>Add a new dvd</h1>
+<!-- 
+  <form action="/dvds" method="post">
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="image" placeholder="Image URL">
+    <input type="text" name="imdbLink" placeholder="IMDB URL">
+    <input type="text" name="description" placeholder="Description">
+    <button>Submit</button>
+  </form> -->
+
+<div id="container"></div>
+
+<form id="metadata_form" action="/dvds" method="post" enctype="multipart/form-data">
+
+  <label class="form_label" data-content="Title" for="title"></label>
+  <input type="text" id="title" name="movie_title" placeholder="Name" class="form_input">
+
+  <label class="form_label" data-content="Plot" for="plot"></label>
+  <textarea id="plot" name="movie_desc" placeholder="Plot" style="width: 95%; height: 125px;"></textarea>
+
+  <label class="form_label" data-content="Runtime" for="runtime"></label>
+  <input type="text" id="runtime" name="runtime" placeholder="Runtime" class="form_input">
+
+  <label class="form_label" data-content="Release date" for="released"></label>
+  <input type="text" id="released" name="release_dt" placeholder="Release Date" class="form_input">
+
+  <label class="form_label" data-content="MPAA" for="MPAA"></label>
+  <input type="text" id="MPAA" name="MPAA" placeholder="MPAA Rating" class="form_input">
+
+  <label class="form_label" data-content="Rating" for="rating"></label>
+  <input type="text" id="rating" name="rating" placeholder="My Rating" class="form_input">
+
+  <label class="form_label" data-content="IMDb Link" for="imdbid"></label>
+  <input type="text" id="imdbid" name="imdb_lk" placeholder="IMDB Link" class="form_input">
+
+  <label class="form_label" data-content="Poster URL" for="poster"></label>
+  <input type="text" id="poster" name="poster_url" placeholder="Poster URL" class="form_input">
+
+  Poster Preview:<br> <div class="poster" style="width:auto;"><img src=""></div>
+  <button type="submit" class="button" value="Add">Add</button>
+</form>
+
+</section>
+
+
+
+<p><a href="/dvds">Back</a></p>
+
+<% include partials/footer %>

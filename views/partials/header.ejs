@@ -16,23 +16,13 @@
             <li><a href="#">Login</a></li>
             <li><a href="/dvds">View All DVDs</a></li>
             <li><a href="/dvds/new">Add New DVD</a></li>
-            <li><a href="#">Search</a></li>
+            <li><a href="#" id="search">Search</a></li>
         </ul>
     </nav>
-    
-    <section class="">
-        <form data-js-search-form="" class="search" action="." method="get">
-            <label class="search-box ">
-                <input name="q" type="text" autofocus="" data-js-search-input="" placeholder="Search...">
-            </label>
-        </form>
-        <!--<form action="/search.html">
 
-      <label for="search">
-        <input name="search" type="text" placeholder="search by, actor, title etc...">
-      </label>
-      
-      <button type="submit"> <span class="fontawesome-search"></span></button>
-
-    </form>-->
+    <section class="search">
+      <form data-js-search-form="" action="/search" class="search-container">
+        <input type="text" id="search-bar" data-js-search-input="" placeholder="search by, actor, title etc...">
+        <button type="submit"> <span class="fontawesome-search"></span></button>
+      </form>
     </section>

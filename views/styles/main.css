@@ -29,27 +29,47 @@ nav li {
 
 .search {
   margin: 0 auto;
-  padding-bottom: 20px;
-  box-shadow: 0 0 0 orange; }
-  .search::before {
-    font-size: 32px;
-    color: #111;
-    flex: 0 0 64px;
-    width: 64px;
-    line-height: 64px;
-    text-align: center;
-    content: "\f375"; }
-  .search input {
-    width: 95%;
-    height: 20px;
-    padding: 10px 15px;
-    font: normal 16px 'Arial', 'Tahoma';
-    border: 0;
-    background: #fff;
-    border-radius: 5px 0 0 5px; }
-    .search input:focus {
-      outline: 0;
-      background: #fff; }
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  height: 45px; }
+  .search .search-container {
+    float: left;
+    display: block;
+    margin: 0 auto;
+    width: 450px; }
+  .search input#search-bar {
+    margin: 0 auto;
+    width: 400px;
+    height: 45px;
+    padding: 0 20px;
+    font-size: 1rem;
+    border: none;
+    outline: none; }
+    .search input#search-bar:focus {
+      transition: 0.35s ease;
+      color: #555555; }
+      .search input#search-bar:focus::-webkit-input-placeholder {
+        transition: opacity 0.45s ease;
+        opacity: 0; }
+      .search input#search-bar:focus::-moz-placeholder {
+        transition: opacity 0.45s ease;
+        opacity: 0; }
+      .search input#search-bar:focus:-ms-placeholder {
+        transition: opacity 0.45s ease;
+        opacity: 0; }
+  .search input::-webkit-input-placeholder {
+    color: #c6c7c6;
+    font-weight: normal; }
+  .search input:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic; }
+  .search input:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic; }
   .search button {
     overflow: visible;
     position: relative;
@@ -57,12 +77,11 @@ nav li {
     border: 0;
     padding: 0;
     cursor: pointer;
-    height: 40px;
+    height: 45px;
     width: 50px;
     font: bold 18px 'Arial', 'Tahoma';
     color: #fff;
     background: #c1c1c1;
-    border-radius: 0 5px 5px 0;
     transition: all 2.0s linear;
     -webkit-transition: all 0.2s linear;
     -moz-transition: all 0.2s linear;
@@ -85,25 +104,6 @@ nav li {
       -moz-transition: all 0s linear;
       -ms-transition: all 0s linear;
       -o-transition: all 0s linear; }
-      .search button:active:before, .search button:focus:before {
-        border-right-color: #c42f2f; }
-
-.search input:hover + .search button {
-  background: #ccc; }
-
-.search input::-webkit-input-placeholder {
-  color: #c6c7c6;
-  font-weight: normal; }
-
-.search input:-moz-placeholder {
-  color: #999;
-  font-weight: normal;
-  font-style: italic; }
-
-.search input:-ms-input-placeholder {
-  color: #999;
-  font-weight: normal;
-  font-style: italic; }
 
 .listings {
   width: 100%;
@@ -145,8 +145,7 @@ nav li {
   background: #5cc924;
   border-radius: 0 5px 5px 0;
   transition: all 1s linear; }
-
-form {
+.new form {
   background-color: #fff;
   padding: 20px;
   width: 100%;

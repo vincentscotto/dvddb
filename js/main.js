@@ -1,8 +1,3 @@
-$('.header').on('click', '.search-toggle', function(e) {
-  var selector = $(this).data('selector');
-
-  $(selector).toggleClass('show').find('.search-input').focus();
-  $(this).toggleClass('active');
-
-  e.preventDefault();
+$('li a#search').on('click', function(e){
+  $('.search').toggle('bounce'); // this is temp
 });

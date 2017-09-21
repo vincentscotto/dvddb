@@ -1,7 +1,9 @@
 var express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
-  mongoose = require('mongoose');
+  mongoose = require('mongoose'),
+  $ = require('jquery');
+
 
 mongoose.connect('mongodb://localhost/dvds');
 
@@ -14,6 +16,7 @@ app.use(bodyParser.urlencoded({
 
 // set directory
 app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/js'));
 
 // set the view engine
 app.set('view engine', 'ejs');

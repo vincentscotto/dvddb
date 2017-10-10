@@ -1,6 +1,7 @@
 var express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
+  methodOverride = require('method-override'),
   mongoose = require('mongoose'),
   $ = require('jquery');
 
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({
 // set directory
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/js'));
+app.use(methodOverride('_method'));
 
 // set the view engine
 app.set('view engine', 'ejs');
@@ -105,7 +107,6 @@ app.post('/dvds', function(req, res) {
     } else {
       // redirect back to dvds page
       res.redirect('/dvds');
-
     }
   });
 
@@ -136,6 +137,42 @@ app.get('/dvds/:id', function(req, res) {
     }
   });
 
+});
+
+// EDIT
+app.get('/dvds/:id/edit', function(req, res) {
+  Dvd.findById(req.params.id, function(err, foundDvd) {
+    if (err) {
+      res.redirect('/dvds');
+    } else {
+      res.render('edit', { dvd: foundDvd });
+    }
+
+  });
+});
+
+// UPDATE
+app.put('/dvds/:id', function(req, res) {
+  Dvd.findByIdAndUpdate(req.params.id, req.body.dvd, function(err, updatedDvd) {
+    if (err) {
+      res.redirect('/dvds');
+    } else {
+      res.redirect('/dvds/' + req.params.id);
+    }
+
+  });
+});
+
+
+// DELETE
+app.delete('/dvds/:id', function(req, res) {
+  Dvd.findByIdAndRemove(req.params.id, function(err) {
+    if (err) {
+      res.redirect('/dvds');
+    } else {
+      res.redirect('/dvds');
+    }
+  });
 });
 
 var port = process.env.port || 3000;

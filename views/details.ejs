@@ -5,15 +5,25 @@
   <h1>Details</h1>
 
   <p><a href="/dvds">Back</a></p>
-      <div>
-          <h2><%= dvd.name %></h2>
-          <img src="<%= dvd.image %>">
-          <p><a href="<%= dvd.imdbLink %>">IMDB Link</a></p>
-          <p><%= dvd.description %></p>
-          <p><a href="/dvds/<%= dvd._id  %>">More Info</a></p>
-      </div>
+
+  <form action="/dvds/<%= dvd._id %>/edit" method="PUT">
+    <button type="submit" class="edit">Edit</button>
+  </form>
+
+  <form action="/dvds/<%= dvd._id %>?_method=DELETE" method="post">
+    <button type="submit" class="delete">Delete</button>
+  </form>
+
+  <div>
+    <h2><%= dvd.name %> [ID: <%= dvd._id %>]</h2>
+    <img src="<%= dvd.image %>">
+    <p><a href="<%= dvd.imdbLink %>">IMDB Link</a></p>
+    <p><%= dvd.description %></p>
+    <p><a href="/dvds/<%= dvd._id %>">More Info</a></p>
+  </div>
 
 </section>
+
 
 <p><a href="/dvds">Back</a></p>
 

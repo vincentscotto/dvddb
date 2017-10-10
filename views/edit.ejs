@@ -1,17 +1,19 @@
 <% include partials/header %>
 
-<section class="new">
+<section class="edit">
 
-<h1>Add a new dvd</h1>
+<h1>Edit <%= dvd.name %></h1>
 
-<!--   <form action="/dvds" method="post">
-    <input type="text" name="dvd[name]" placeholder="Name">
-    <input type="text" name="dvd[image]" placeholder="Image URL">
-    <input type="text" name="dvd[imdbLink]" placeholder="IMDB URL">
-    <input type="text" name="dvd[description]" placeholder="Description">
+  <form action="/dvds/<%= dvd._id %>?_method=PUT" method="POST">
+    <input type="text" name="dvd[name]" placeholder="Name" value="<%= dvd.name %>">
+    <input type="text" name="dvd[image]" placeholder="Image URL" value="<%= dvd.image %>">
+    <input type="text" name="dvd[imdbLink]" placeholder="IMDB URL" value="<%= dvd.imdbLink %>">
+    <textarea type="text" name="dvd[description]" placeholder="Description"><%= dvd.description %></textarea>
     <button>Submit</button>
-  </form> -->
+  </form>
 
+  
+<!-- 
 <div id="container"></div>
 
 <form id="metadata_form" action="/dvds" method="post" enctype="multipart/form-data">
@@ -45,7 +47,7 @@
 </form>
 
 </section>
-
+ -->
 
 
 <p><a href="/dvds">Back</a></p>
